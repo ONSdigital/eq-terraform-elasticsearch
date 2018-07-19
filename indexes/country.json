@@ -1,0 +1,38 @@
+{
+  "settings": {
+    "analysis": {
+      "filter": {
+        "trigrams_filter": {
+          "type":     "ngram",
+          "min_gram": 3,
+          "max_gram": 7
+        }
+      },
+      "analyzer": {
+        "trigrams": {
+          "type":      "custom",
+          "tokenizer": "standard",
+          "filter":   [
+            "lowercase",
+            "trigrams_filter"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "country": {
+      "properties": {
+        "country": {
+          "type":     "text",
+          "fields": {
+            "trigrams": {
+              "type": "text",
+              "analyzer": "trigrams"
+            }
+          }
+        }
+      }
+    }
+  }
+}

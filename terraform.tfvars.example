@@ -1,0 +1,9 @@
+env=""
+aws_account_id=""
+aws_assume_role_arn=""
+access_ips=["0.0.0.0/0"]
+
+certificate_arn=""
+slack_webhook_path=""
+
+elasticsearch_provisioner_ip=""

@@ -27,7 +27,7 @@ resource "aws_elasticsearch_domain" "suggest" {
             "Effect": "Allow",
             "Resource": "arn:aws:es:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:domain/${var.env}-suggest/*",
             "Condition": {
-                "IpAddress": {"aws:SourceIp": ["${join("\",\"", var.access_list)}"]}
+                "IpAddress": {"aws:SourceIp": ["${join("\",\"", module.routing.nat_gateway_ips)}", "${var.elasticsearch_provisioner_ip}"]}
             }
         }
     ]

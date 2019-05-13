@@ -21,9 +21,18 @@
     }
   },
   "mappings": {
-    "occupation": {
+    "item": {
       "properties": {
-        "occupation": {
+        "en": {
+          "type":     "text",
+          "fields": {
+            "trigrams": {
+              "type": "text",
+              "analyzer": "trigrams"
+            }
+          }
+        },
+        "cy": {
           "type":     "text",
           "fields": {
             "trigrams": {
